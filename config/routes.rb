@@ -1,6 +1,5 @@
 Tasks::Application.routes.draw do
   root :to => "Tasks#index"
-  get "tasks/index"
 
   resources :tasks
   # The priority is based upon order of creation:

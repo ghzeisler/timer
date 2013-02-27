@@ -1,2 +1,31 @@
-<h1>Tasks#index</h1>
-<p>Find me in app/views/tasks/index.html.erb</p>
+<h1>Timers Web App</h1>
+<%= render 'form' %>
+<ul class="task_list">
+<% @tasks.each_with_index do |task, index| %>
+	<li id="task_<%= task.id %>">
+		<%= task.task %>  - @
+		<%= task.date_time.strftime("%B %d %a %l:%M:%S %p")   %>-
+      <% if Time.now < task.date_time + 8.hours %>
+		(<%= distance_of_time_in_words Time.now, task.date_time + 8.hours %>  left!)
+          <% else %>
+            Task has Passed!
+      <% end %>
+      <%= link_to "Edit", edit_task_path(task) %>
+		<%= link_to 'Delete', task, method: 'delete' %>
+		<script type="text/javascript">
+		$(function () {
+			var dateTime_<%=index%> = new Date();
+			dateTime_<%=index%> = new Date('<%= task.date_time.strftime("%a %b %d %Y %H:%M:%S PST") %>');
+			$('#defaultCountdown.<%= index %>').countdown({until: dateTime_<%=index%>});
+			$('#year.<%= index %>').text('<%= task.date_time.strftime("%Y")   %>');
+		});
+		</script>
+		<div id="defaultCountdown"  class="<%= index %>"></div>
+
+
+
+	</li>
+<% end %>
+</ul>
+
+

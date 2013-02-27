@@ -1,14 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Tasks</title>
+  <title>Timers</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+<style type="text/css">
+
+#defaultCountdown { width: 200px; height: 45px; }
+</style>
+
+
+
+
+
 </head>
 <body>
 
+<% flash.each do |name, message| %>
+	<%= content_tag :div, message, id: "flash_#{name}" %>
+<% end %>
 <%= yield %>
-
+<script type="text/javascript">
+$(function() {
+    $( "#datepicker" ).datepicker();
+  });
+</script>
 </body>
 </html>
