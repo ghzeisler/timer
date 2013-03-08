@@ -8,9 +8,39 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require_self
+
  *= require jquery.countdown
  *= require jQuery-UI
+ *= jquery-ui-timepicker-addon
+ *= bootstrap-responsive
  *= require_tree .
+ *= require_self
  */
 @import "bootstrap";
+
+.ui-datepicker {
+width: 13em;
+}
+.ui-slider .ui-slider-handle {
+width: .8em;
+}
+.ui-timepicker-div{
+	font-size: 14px;
+}
+.ui_tpicker_hour_label,.ui_tpicker_minute_label{
+	float:left;
+	/*padding: 1em;*/
+}
+.ui_tpicker_hour,.ui_tpicker_minute{
+	margin-left:4.2em;
+	padding-bottom: 1em;
+}
+.ui_tpicker_time,.ui_tpicker_time_label{
+	font-size:17px;
+	padding: .5em 0 1em 0;
+}
+.ui_tpicker_time_label{
+	float:left;
+	margin-right: 2em;
+
+}

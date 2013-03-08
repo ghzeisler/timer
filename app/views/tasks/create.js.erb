@@ -1,0 +1,14 @@
+<% if @task.new_record? %>
+	if ($('#task_task:input').val().length == 0){
+		$('#task_task:input').effect('highlight', { color: 'red'});
+	}
+	if ($('#task_date_time:input').val().length == 0){
+		$('#task_date_time:input').effect('highlight', { color: 'red'});
+	}
+
+<% else %>
+	$('div#tasks').append(" <%= escape_javascript(render @task) %>");
+	$('div#<%= dom_id(@task) %>').effect('highlight');
+	$('#task_task:input').val('');
+	$('#task_date_time:input').val('');
+<% end %>

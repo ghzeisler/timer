@@ -12,7 +12,7 @@ gem 'bootstrap-datepicker-rails'
 # in production environments by default.
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
-   gem 'compass-rails'
+  gem 'compass-rails'
   gem 'coffee-rails', '~> 3.2.1'
 	gem 'bootstrap-sass', '~> 2.3.0.1'
 

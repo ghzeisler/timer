@@ -1,12 +1,13 @@
+<div class='create'>
 <%= form_for @task do |f| %>
 	<%= f.label :Name %>
 	<%= f.text_field :task %><br/>
-	<%= f.label :date %>
-	<%= #f.datetime_select( :date_time, :default => Time.now,:order => [:month, :day,:year], ampm: true,:date_separator => '/ ', :time_separator => ': ', :datetime_separator => '<br/>Time ') %>
-	<%= f.datepicker :date_time %>
+	<%= f.label 'Date/Time' %>
+	<%= f.datetime_picker :date_time, :dateFormat => "yy-mm-dd" %>
 
 
 <% #f.time_zone_select :time_zone, ActiveSupport::TimeZone.us_zones %>
 
 	<%=	f.submit "Create Timer"%>
 <% end %>
+</div>

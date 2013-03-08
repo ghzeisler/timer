@@ -1,0 +1,28 @@
+<ul class="task_list">
+	<li id="task_<%= @task.id %>">
+		<%= @task.task %>  - @
+		<%= @task.date_time.strftime("%B %d %a %l:%M:%S %p")   %>-
+      <% if Time.now < @task.date_time + 8.hours %>
+		(<%= distance_of_time_in_words Time.now, task.date_time + 8.hours %>  left!)
+          <% else %>
+            Task has Passed!
+      <% end %>
+      <%= link_to "Edit", edit_task_path(@task) %>
+		<%= link_to 'Delete', @task, method: 'delete' %>
+		<script type="text/javascript">
+		$(function () {
+			var dateTime_1 = new Date();
+			dateTime_1 = new Date('<%= @task.date_time.strftime("%a %b %d %Y %H:%M:%S PST") %>');
+			$('#defaultCountdown.<%= 1 %>').countdown({until: dateTime_1});
+			$('#year.<%= 1 %>').text('<%= @task.date_time.strftime("%Y")   %>');
+		});
+		</script>
+		<div id="defaultCountdown"  class="<%= 1 %>"></div>
+
+
+
+	</li>
+
+</ul>
+
+

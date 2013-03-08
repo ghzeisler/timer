@@ -1,0 +1,27 @@
+<%= div_for task do %>
+	<li id="task_<%= task.id %>">
+		<%= task.task %>  - @
+		<%= task.date_time.try(:strftime,"%B %d %a %l:%M:%S %p")   %>-
+      <% if Time.now < task.date_time + 8.hours %>
+		(<%= distance_of_time_in_words Time.now, task.date_time + 8.hours %>  left!)
+          <% else %>
+            Task has Passed!
+      <% end %>
+      <div class='actions'>
+      <%= link_to "Edit", edit_task_path(task) %>
+		<%= link_to 'Delete', task, method: :delete, remote: true %>
+	</div>
+		<script type="text/javascript">
+		$(function () {
+			var dateTime_<%= task.id %> = new Date();
+			dateTime_<%= task.id %> = new Date('<%= task.date_time.strftime("%a %b %d %Y %H:%M:%S PST") %>');
+			$('#defaultCountdown.<%= task.id %>').countdown({until: dateTime_<%= task.id %>});
+			$('#year.<%= task.id %>').text('<%= task.date_time.strftime("%Y")   %>');
+		});
+		</script>
+		<div id="defaultCountdown"  class="<%= task.id %>"></div>
+
+
+
+	</li>
+<% end %>
