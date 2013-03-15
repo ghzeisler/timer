@@ -12,11 +12,10 @@
  *= require jquery.countdown
  *= require jQuery-UI
  *= jquery-ui-timepicker-addon
- *= bootstrap-responsive
  *= require_tree .
  *= require_self
  */
-@import "bootstrap";
+
 
 .ui-datepicker {
 width: 13em;
