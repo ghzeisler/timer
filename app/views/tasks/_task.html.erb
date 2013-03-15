@@ -1,10 +1,9 @@
 <%= div_for task do %>
+<div class="title" id="task_<%= task.id %>"><%= task.task %></div>
 	<li id="task_<%= task.id %>">
-		<%= task.task %>  - @
-		<%= task.date_time.try(:strftime,"%B %d %a %l:%M:%S %p")   %>-
-
-
-
+		<div class="date" id="task_<%= task.id %>">
+			<%=task.date_time.try(:strftime,"%B %d %a %l:%M:%S %p")%>
+		</div>
 		<script type="text/javascript">
 		$(function () {
 			var dateTime_<%= task.id %> = new Date();
@@ -15,7 +14,7 @@
 		</script>
 		<div id="defaultCountdown"  class="<%= task.id %>"></div>
 		<div class='actions'>
-			<%= link_to "Edit", edit_task_path(task) %>
+
 		<%= link_to 'Delete', task, method: :delete, remote: true %>
 		</div>
 

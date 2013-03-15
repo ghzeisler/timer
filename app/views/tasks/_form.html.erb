@@ -1,13 +1,14 @@
-<div class='create'>
-<%= form_for @task do |f| %>
+<div class='new_task'>
+<%= form_for(Task.new, remote: true) do |f|%>
+	<%= form_for @task do |f| %>
 	<%= f.label :Name %>
 	<%= f.text_field :task %><br/>
-	<%= f.label 'Date/Time' %>
+	<%= f.label :date_time, 'Date/Time' %>
 	<%= f.datetime_picker :date_time, :dateFormat => "yy-mm-dd" %>
-
-
 <% #f.time_zone_select :time_zone, ActiveSupport::TimeZone.us_zones %>
-
+<div class="action">
 	<%=	f.submit "Create Timer"%>
+</div>
+<% end %>
 <% end %>
 </div>

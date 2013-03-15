@@ -53,14 +53,20 @@ padding:10px;
 }
 
 .new_task{
-	background-color:#000;
+
 	padding:20px;
 	width:320px;
 	height:125px;
 	border:3px solid rgb(51, 50, 50);;
 border-radius:5px;
-color:#fff;
+}
 
+.title{
+	text-align:left;
+	margin-right:10px;
+	margin-left:10px;
+	padding:10px 10px 0px 10px;
+	font-size:1.2em;
 }
 
 .task li{
@@ -76,6 +82,9 @@ color:#fff;
 .task li .actions {
 	float:right;
 	margin-top: 20px;
+}
+.date{
+	align:center;
 }
 .container, .navbar-static-top .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container {
 width: 320px;
