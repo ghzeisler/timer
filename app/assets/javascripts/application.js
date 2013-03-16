@@ -15,6 +15,7 @@
 //= require jquery-ui
 //= require jquery.purr
 //= require best_in_place
+//= require best_in_place.purr
 //= require jquery-ui-timepicker-addon
 //= require jquery.countdown
 //= require bootstrap

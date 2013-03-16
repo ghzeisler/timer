@@ -2,7 +2,7 @@
 <div class="title" id="task_<%= task.id %>"><%= best_in_place task, :task %></div>
 	<li id="task_<%= task.id %>">
 		<div class="date" id="task_<%= task.id %>">
-			<%=best_in_place task, :date_time, :display_with => lambda { |v| v.try(:strftime,"%B %d %a %l:%M:%S %p")}, :data => {:task_date_time => task.date_time} %>
+			<%=best_in_place task, :date_time, :display_with => lambda { |v| v.try(:strftime,"%B %d %a %l:%M:%S %p")}, :data => {:task_date_time => task.date_time}, inner_class: 'Datepicker' %>
 		</div>
 		<script type="text/javascript">
 		$(function () {
@@ -22,6 +22,10 @@
 			if (minutes <= 9){minutes = '0' + minutes;}
 			var date_time 	= year + '-' + month + '-' + date + ' ' + hours + ':' + minutes;
 			console.log(date_time);
+
+//<![CDATA[
+jQuery('.Datepicker').datetimepicker({"dateFormat":"yy-mm-dd"});
+//]]>
 
 		});
 		</script>

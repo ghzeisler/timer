@@ -6,12 +6,17 @@
 
 $(document).ready ->
 	$('.best_in_place').best_in_place()
+	$('.best_in_place').click ->
+		 $('.form_in_place').datetimepicker({"dateFormat":"yy-mm-dd"})
 	$('.bounce_on_success').bind("ajax:success", ->
 		$(this).closest('tr').effect('bounce')
+		$(this).datepicker("destroy")
+		$(this).removeClass('.hasDatepicker')
 	)
 	$('.best_in_place').bind("ajax:success", ->
 		date_time_pre = $(this).text()
 		date_time_pre = date_time_pre.replace(/-/g,"/")
+		date_time_pre = date_time_pre.replace('UTC',"(PDT)")
 		date_time = new Date();
 		date_time = new Date(date_time_pre );
 		console.log(date_time)
