@@ -1,21 +1,35 @@
 <%= div_for task do %>
-<div class="title" id="task_<%= task.id %>"><%= task.task %></div>
+<div class="title" id="task_<%= task.id %>"><%= best_in_place task, :task %></div>
 	<li id="task_<%= task.id %>">
 		<div class="date" id="task_<%= task.id %>">
-			<%=task.date_time.try(:strftime,"%B %d %a %l:%M:%S %p")%>
+			<%=best_in_place task, :date_time, :display_with => lambda { |v| v.try(:strftime,"%B %d %a %l:%M:%S %p")}, :data => {:task_date_time => task.date_time} %>
 		</div>
 		<script type="text/javascript">
 		$(function () {
 			var dateTime_<%= task.id %> = new Date();
 			dateTime_<%= task.id %> = new Date('<%= task.date_time.strftime("%a %b %d %Y %H:%M:%S") %>');
 			$('#defaultCountdown.<%= task.id %>').countdown({until: dateTime_<%= task.id %>});
-			$('#year.<%= task.id %>').text('<%= task.date_time.strftime("%Y")   %>');
+			var dt 		= new Date();
+				dt 		= dateTime_<%= task.id %>;
+			var month 	= dt.getMonth() + 1;
+			if (month <= 9){month = '0' + month;}
+			var year 	= dt.getFullYear();
+			var date 	= dt.getDate();
+			if (date <= 9){date = '0' + date;}
+			var hours 	= dt.getHours();
+			if (hours <= 9){hours = '0' + hours;}
+			var minutes = dt.getMinutes();
+			if (minutes <= 9){minutes = '0' + minutes;}
+			var date_time 	= year + '-' + month + '-' + date + ' ' + hours + ':' + minutes;
+			console.log(date_time);
+
 		});
 		</script>
 		<div id="defaultCountdown"  class="<%= task.id %>"></div>
 		<div class='actions'>
 
 		<%= link_to 'Delete', task, method: :delete, remote: true %>
+		<!-- <a class='edit' id='<%= task.id %>' href="">Edit</a> -->
 		</div>
 
 
