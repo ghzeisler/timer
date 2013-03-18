@@ -1,8 +1,8 @@
 class TasksController < ApplicationController
   respond_to :html, :json
   def index
-  	@task = Task.new
-  	@tasks = Task.all
+    @task = Task.new
+    @tasks = Task.all
   end
 
   def create
@@ -18,7 +18,7 @@ class TasksController < ApplicationController
   end
 
   def edit
-  	@task = Task.find params[:id]
+    @task = Task.find params[:id]
   end
 
   def show
@@ -26,22 +26,22 @@ class TasksController < ApplicationController
   end
 
   def update
-  		@task = Task.find params[:id]
+      @task = Task.find params[:id]
       @task.update_attributes(params[:task])
-  		# if task.update_attributes params[:task]
-  		# 	redirect_to tasks_path, :notice => 'Your tasks was updated!'
-  		# else
-  		# 	if params[:task]["task"].blank?
-  		# 		redirect_to :back, notice: 'Error Cannot Update Task no text found!'
-  		# 	else
-  		# 		redirect_to :back, notice: 'There was an error updating your tasks!'
-  		# 	end
-  		# end
+      # if task.update_attributes params[:task]
+      #   redirect_to tasks_path, :notice => 'Your tasks was updated!'
+      # else
+      #   if params[:task]["task"].blank?
+      #     redirect_to :back, notice: 'Error Cannot Update Task no text found!'
+      #   else
+      #     redirect_to :back, notice: 'There was an error updating your tasks!'
+      #   end
+      # end
       respond_with @task
   end
 
   def destroy
-  	@task = Task.find params[:id]
+    @task = Task.find params[:id]
     @task.destroy
 
     respond_to do |format|

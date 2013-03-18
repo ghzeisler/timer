@@ -5,14 +5,30 @@
 
 
 $(document).ready ->
+	$('.Datepicker').datetimepicker({"dateFormat":"yy/mm/dd"});
 	$('.best_in_place').best_in_place()
-	$('.best_in_place').click ->
-		 $('.form_in_place').datetimepicker({"dateFormat":"yy-mm-dd"})
 	$('.bounce_on_success').bind("ajax:success", ->
-		$(this).closest('tr').effect('bounce')
-		$(this).datepicker("destroy")
-		$(this).removeClass('.hasDatepicker')
+		$(this).closest('li').effect('bounce')
 	)
+	$('.best_in_place').bind("ajax:success", ->
+
+		console.log($(this).attr("data-original-content"));
+		date_time_pre = $(this).text()
+		date_time_pre = date_time_pre.replace(/-/g,"/")
+		date_time_pre = date_time_pre.replace('UTC',"(PDT)")
+		date_time = new Date();
+		date_time = new Date(date_time_pre );
+		console.log(date_time)
+		id = $(@).parent().attr("id")
+		id = id.replace('task_',"");
+		data = $('.date#task_' + id + ' span').attr("data-original-content", date_time_pre);
+		console.log(data);
+		console.log('#defaultCountdown.' + id)
+		if (isNaN(date_time) == false)
+			$('#defaultCountdown.' + id).countdown('destroy');
+			$('#defaultCountdown.' + id).countdown({until: date_time})
+	)
+
 	$('.best_in_place').bind("ajax:success", ->
 		date_time_pre = $(this).text()
 		date_time_pre = date_time_pre.replace(/-/g,"/")
@@ -28,9 +44,8 @@ $(document).ready ->
 			$('#defaultCountdown.' + id).countdown({until: date_time})
 	)
 	$('.highlight_on_success').bind("ajax:success", ->
-		$(this).closest('tr').effect('highlight')
+		$(this).closest('li').effect('highlight')
 	)
 
 
-	$("#best_in_place_task_78_date_time").triggerHandler("DateUpdate");
-	$('#best_in_place_task_78_date_time').text()
+
