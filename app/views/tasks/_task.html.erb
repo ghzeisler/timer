@@ -11,7 +11,7 @@
 			var dateTime = new Date();
 			dateTime = new Date('<%= task.date_time.strftime("%a %b %d %Y %H:%M:%S") %>');
 			$('#defaultCountdown.<%= task.id %>').countdown({until: dateTime});
-			countdownParse('<%= task.id %>','dateTime');
+
 		});
 		</script>
 		<div id="defaultCountdown"  class="<%= task.id %>"></div>
