@@ -85,6 +85,10 @@ border-radius:5px;
 		padding-right:20px;
 
 	}
+.actions a{
+		background: asset-url("delete.png", image) no-repeat right;
+		padding-right:20px;
+	}
 .task li .actions {
 	float:right;
 	margin-top: 20px;
