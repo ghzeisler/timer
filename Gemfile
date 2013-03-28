@@ -28,7 +28,7 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
 end
-gem 'best_in_place'
+gem 'best_in_place', github: 'bernat/best_in_place'
 gem 'jquery-rails'
 gem 'jquery_datepicker'
 

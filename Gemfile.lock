@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/bernat/best_in_place.git
+  revision: ca267766655cab7d1b23c772abb797b54304ef1c
+  specs:
+    best_in_place (2.1.0)
+      jquery-rails
+      rails (~> 3.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -31,9 +39,6 @@ GEM
     addressable (2.3.3)
     ansi (1.4.3)
     arel (3.0.2)
-    best_in_place (2.1.0)
-      jquery-rails
-      rails (~> 3.1)
     bootstrap-datepicker-rails (1.0.0.1)
       railties (>= 3.0)
     bootstrap-sass (2.3.0.1)
@@ -183,7 +188,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  best_in_place
+  best_in_place!
   bootstrap-datepicker-rails
   bootstrap-sass (~> 2.3.0.1)
   capybara
