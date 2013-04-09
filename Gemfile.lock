@@ -102,6 +102,7 @@ GEM
     method_source (0.8.1)
     mime-types (1.21)
     multi_json (1.7.1)
+    newrelic_rpm (3.6.0.78)
     nokogiri (1.5.8)
     pg (0.12.2)
     polyglot (0.3.3)
@@ -198,6 +199,7 @@ DEPENDENCIES
   jquery-rails
   jquery_datepicker
   launchy
+  newrelic_rpm
   pg (= 0.12.2)
   rails (= 3.2.12)
   rb-fsevent (~> 0.9.1)
